@@ -69,6 +69,13 @@
     <profiles>
         <profile>
             <id>release-deploy</id>
+            <distributionManagement>
+                <repository>
+                    <id>ossrh</id>
+                    <name>Central Repository OSSRH</name>
+                    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+                </repository>
+            </distributionManagement>
             <activation>
                 <property>
                     <name>performRelease</name>
@@ -88,6 +95,9 @@
                                 <goals>
                                     <goal>sign</goal>
                                 </goals>
+                                <configuration>
+                                    <signer>bc</signer>
+                                </configuration>
                             </execution>
                         </executions>
                     </plugin>
