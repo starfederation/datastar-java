@@ -10,6 +10,7 @@
 
     <name>Datastar Java SDK Suite</name>
     <description>The suite of libraries for the Datastar Java SDK</description>
+    <url>https://github.com/starfederation/datastar-java</url>
 
     <modules>
         <module>core</module>
