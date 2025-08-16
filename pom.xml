@@ -46,8 +46,8 @@
     </distributionManagement>
 
     <scm>
-        <connection>scm:git:git@github.com:starfederation/datastar-java.git</connection>
-        <developerConnection>scm:git:git@github.com:starfederation/datastar-java.git</developerConnection>
+        <connection>scm:git:https://github.com/starfederation/datastar-java.git</connection>
+        <developerConnection>scm:git:https://github.com/starfederation/datastar-java.git</developerConnection>
         <url>https://github.com/starfederation/datastar-java</url>
     </scm>
 
