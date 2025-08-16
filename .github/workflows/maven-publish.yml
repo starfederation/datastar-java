@@ -22,7 +22,22 @@ jobs:
         server-password: ${{ secrets.MAVEN_PASSWORD }}
         gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
         gpg-passphrase: ${{ secrets.GPG_PASSPHRASE }}
-        
+
+    - name: Write settings.xml for Maven Central
+      run: |
+        mkdir -p $HOME/.m2
+        cat <<EOF > $HOME/.m2/settings.xml
+<settings>
+  <servers>
+    <server>
+      <id>central</id>
+      <username>${{ secrets.MAVEN_USERNAME }}</username>
+      <password>${{ secrets.MAVEN_PASSWORD }}</password>
+    </server>
+  </servers>
+</settings>
+EOF
+
     - name: Publish to Maven Central
       run: mvn clean deploy -DperformRelease=true -X -e
       env:
