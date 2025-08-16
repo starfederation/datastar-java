@@ -26,17 +26,15 @@ jobs:
     - name: Write settings.xml for Maven Central
       run: |
         mkdir -p $HOME/.m2
-        cat <<EOF > $HOME/.m2/settings.xml
-<settings>
-  <servers>
-    <server>
-      <id>central</id>
-      <username>${MAVEN_USERNAME}</username>
-      <password>${MAVEN_PASSWORD}</password>
-    </server>
-  </servers>
-</settings>
-EOF
+        echo '<settings>' > $HOME/.m2/settings.xml
+        echo '  <servers>' >> $HOME/.m2/settings.xml
+        echo '    <server>' >> $HOME/.m2/settings.xml
+        echo '      <id>central</id>' >> $HOME/.m2/settings.xml
+        echo "      <username>${MAVEN_USERNAME}</username>" >> $HOME/.m2/settings.xml
+        echo "      <password>${MAVEN_PASSWORD}</password>" >> $HOME/.m2/settings.xml
+        echo '    </server>' >> $HOME/.m2/settings.xml
+        echo '  </servers>' >> $HOME/.m2/settings.xml
+        echo '</settings>' >> $HOME/.m2/settings.xml
       env:
         MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
         MAVEN_PASSWORD: ${{ secrets.MAVEN_PASSWORD }}
