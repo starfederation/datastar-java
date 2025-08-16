@@ -1,8 +1,0 @@
-starfederation/datastar/unit/DataStoreTest.class
-starfederation/datastar/unit/PatchElementsTest.class
-starfederation/datastar/unit/RemoveFragmentsTest.class
-starfederation/datastar/unit/ExecuteScriptTest.class
-starfederation/datastar/unit/ServerSentEventGeneratorTest.class
-starfederation/datastar/unit/MergeSignalsTest.class
-starfederation/datastar/unit/RemoveSignalsTest.class
-starfederation/datastar/unit/SignalReaderTest.class
