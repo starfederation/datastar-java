@@ -13,7 +13,7 @@
     <packaging>jar</packaging>
 
     <name>Datastar Java SDK Core</name>
-    <description>The core library for the Datastar Java SDK suite</description>
+    <description>The core library for the Datastar Java SDK</description>
 
     <dependencies>
         <!-- Jackson for JSON processing -->
