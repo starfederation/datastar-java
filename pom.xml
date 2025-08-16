@@ -9,7 +9,8 @@
     <packaging>pom</packaging>
 
     <name>Datastar Java SDK</name>
-    <description>The Datastar Java SDK</description>
+    <description>A Java SDK for Datastar.</description>
+    <url>https://github.com/starfederation/datastar-java</url>
 
     <modules>
         <module>core</module>
@@ -34,6 +35,7 @@
         </license>
     </licenses>
 
+    <!--
     <distributionManagement>
         <snapshotRepository>
             <id>central</id>
@@ -44,6 +46,7 @@
             <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
     </distributionManagement>
+    -->
 
     <scm>
         <connection>scm:git:https://github.com/starfederation/datastar-java.git</connection>
@@ -69,7 +72,6 @@
         <mockito.version>5.14.2</mockito.version>
         <jackson.databind.version>2.18.2</jackson.databind.version>
     </properties>
-
 
     <profiles>
         <profile>
@@ -188,10 +190,21 @@
                     </argLine>
                 </configuration>
             </plugin>
+            <!-- Central Publishing Maven Plugin -->
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-deploy-plugin</artifactId>
-                <version>${maven.deploy.plugin.version}</version>
+                <groupId>org.sonatype.centralsync</groupId>
+                <artifactId>central-publishing-maven-plugin</artifactId>
+                <version>0.8.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>publish</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <publishingServerId>central</publishingServerId>
+                </configuration>
             </plugin>
         </plugins>
     </build>
