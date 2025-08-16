@@ -23,14 +23,9 @@ jobs:
         gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
         gpg-passphrase: MAVEN_GPG_PASSPHRASE
     
-    - name: Import GPG key
-      run: echo "$MAVEN_GPG_KEY" | gpg --batch --import
-      env:
-        MAVEN_GPG_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
-    
     - name: Publish to Maven Central
       run: mvn clean deploy -DperformRelease=true
       env:
-        MAVEN_USERNAME: ${{ secrets.MAVEN_TOKEN_USERNAME }}
-        MAVEN_PASSWORD: ${{ secrets.MAVEN_TOKEN_PASSWORD }}
+        MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
+        MAVEN_PASSWORD: ${{ secrets.MAVEN_PASSWORD }}
         MAVEN_GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
