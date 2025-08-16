@@ -18,10 +18,11 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         server-id: central
-        server-username: MAVEN_USERNAME
-        server-password: MAVEN_PASSWORD
+        server-username: ${{ secrets.MAVEN_USERNAME }}
+        server-password: ${{ secrets.MAVEN_PASSWORD }}
         gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
-        gpg-passphrase: MAVEN_GPG_PASSPHRASE
+        gpg-passphrase: ${{ secrets.GPG_PASSPHRASE }}
+
     
     - name: Publish to Maven Central
       run: mvn clean deploy -DperformRelease=true
