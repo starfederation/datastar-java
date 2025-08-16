@@ -23,7 +23,9 @@ jobs:
         gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
         gpg-passphrase: ${{ secrets.GPG_PASSPHRASE }}
 
-    
+    - name: Show generated Maven settings
+      run: cat ~/.m2/settings.xml
+
     - name: Publish to Maven Central
       run: mvn clean deploy -DperformRelease=true
       env:
