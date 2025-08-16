@@ -22,7 +22,12 @@ jobs:
         server-password: ${{ secrets.MAVEN_PASSWORD }}
         gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
         gpg-passphrase: ${{ secrets.GPG_PASSPHRASE }}
-
+        
+    - name: Write settings-security.xml
+      run: |
+        mkdir -p /home/runner/.m2
+        echo "${{ secrets.SETTINGS_SECURITY_XML }}" > /home/runner/.m2/settings-security.xml
+    
     - name: Publish to Maven Central
       run: mvn clean deploy -DperformRelease=true -X -e
       env:
