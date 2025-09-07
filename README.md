@@ -15,18 +15,29 @@ This package requires Java 17 or later.
 Install using Maven by adding the following to your `pom.xml`:
 
 ```xml
-<dependency>
-    <groupId>com.starfederation</groupId>
-    <artifactId>datastar</artifactId>
-    <version>1.0.0</version>
-</dependency>
+<dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>dev.data-star</groupId>
+            <artifactId>datastar-java-sdk</artifactId>
+            <version>1.0.0</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
 
-<repositories>
-    <repository>
-        <id>github</id>
-        <url>https://maven.pkg.github.com/starfederation/datastar</url>
-    </repository>
-</repositories>
+<dependencies>
+  <dependency>
+    <groupId>dev.data-star</groupId>
+    <artifactId>datastar-java-sdk-core</artifactId>
+  </dependency>
+  <!-- If needed  (JAX-RS adapter) -->
+  <dependency>
+      <groupId>dev.data-star</groupId>
+      <artifactId>datastar-java-sdk-jaxrs</artifactId>
+  </dependency>
+</dependencies>
 ```
 
 ## Usage
