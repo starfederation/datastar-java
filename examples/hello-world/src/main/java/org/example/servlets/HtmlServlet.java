@@ -21,9 +21,8 @@ public class HtmlServlet extends HttpServlet {
 
         resp.setContentType("text/html;charset=UTF-8");
 
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-             PrintWriter writer = resp.getWriter()) {
-            reader.transferTo(writer);
+        try (inputStream; OutputStream output = resp.getOutputStream()) {
+            inputStream.transferTo(output);
         }
     }
 }
