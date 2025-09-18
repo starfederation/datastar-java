@@ -6,6 +6,7 @@ import starfederation.datastar.adapters.request.RequestAdapter;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.StringWriter;
 import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.ConcurrentMap;
