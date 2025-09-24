@@ -4,8 +4,10 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import starfederation.datastar.adapters.request.RequestAdapter;
 
-import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.Reader;
+import java.io.StringWriter;
+import java.io.Writer;
 import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.ConcurrentMap;
@@ -37,15 +39,10 @@ public class SignalReader {
             }
         } else {
             // Handle other methods by reading the request body
-            StringBuilder requestBody = new StringBuilder();
-            try (BufferedReader reader = requestAdapter.getReader()) {
-                String line;
-                while ((line = reader.readLine()) != null) {
-                    requestBody.append(line);
-                }
+            try (Reader reader = requestAdapter.getReader(); Writer writer = new StringWriter()) {
+                reader.transferTo(writer);
+                data = writer.toString();
             }
-
-            data = requestBody.toString();
             if (data.isEmpty()) {
                 throw new IllegalArgumentException("Request body cannot be empty.");
             }
