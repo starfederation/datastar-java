@@ -31,8 +31,8 @@ public class SignalReader {
 
         String data;
 
-        if ("GET".equalsIgnoreCase(requestAdapter.getMethod())) {
-            // Handle GET requests by parsing the `datastar` query parameter
+        if ("GET".equalsIgnoreCase(requestAdapter.getMethod()) || "DELETE".equalsIgnoreCase(requestAdapter.getMethod())) {
+            // Handle GET and DELETE requests by parsing the `datastar` query parameter
             data = requestAdapter.getParameter(DATASTAR_KEY);
             if (data == null || data.isBlank()) {
                 throw new IllegalArgumentException("Missing 'datastar' query parameter in GET request.");
