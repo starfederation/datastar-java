@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Objects;
 
 sealed public abstract class AbstractDatastarEvent implements DatastarEvent permits PatchElements, PatchSignals,
-        ExecuteScript, CustomEvent {
+        ExecuteScript {
 
     private final String[] dataLines;
 
