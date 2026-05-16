@@ -2,6 +2,7 @@ package starfederation.datastar.unit;
 
 import org.junit.jupiter.api.Test;
 import starfederation.datastar.enums.EventType;
+import starfederation.datastar.enums.Namespace;
 import starfederation.datastar.enums.ElementPatchMode;
 import starfederation.datastar.events.PatchElements;
 
@@ -44,6 +45,27 @@ class PatchElementsTest {
         };
 
         assertArrayEquals(expectedDataLines, event.getDataLines());
+    }
+
+    @Test
+    void builderShouldRespectNamespace() {
+        PatchElements event = PatchElements.builder()
+                .selector("#feed")
+                .namespace(Namespace.SVG)
+                .mode(ElementPatchMode.Before)
+                .data("<div id=\"feed\"><span>1</span>\n</div>")
+                .build();
+
+        String[] expectedDataLines = {
+                "selector #feed",
+                "mode before",
+                "namespace svg",
+                "elements <div id=\"feed\"><span>1</span>",
+                "elements </div>"
+        };
+
+        assertArrayEquals(expectedDataLines, event.getDataLines());
+        assertEquals(EventType.PatchElements, event.getEventType());
     }
 
     @Test
