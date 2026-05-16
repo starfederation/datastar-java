@@ -1,11 +1,11 @@
 package starfederation.datastar.events;
-
-import starfederation.datastar.enums.EventType;
+import static starfederation.datastar.Consts.ELEMENTS_DATALINE_LITERAL;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
-import static starfederation.datastar.Consts.*;
+import starfederation.datastar.enums.EventType;
 
 public final class ExecuteScript extends AbstractDatastarEvent {
 
@@ -29,6 +29,7 @@ public final class ExecuteScript extends AbstractDatastarEvent {
 
         /**
          * JavaScript to execute on the client. Do not wrap in HTML-script tags.
+         * 
          * @param script valid JavaScript
          * @return a builder for fluent configuration
          */
@@ -39,6 +40,7 @@ public final class ExecuteScript extends AbstractDatastarEvent {
             this.script = script;
             return this;
         }
+
         private Builder() {
         }
 
@@ -61,8 +63,7 @@ public final class ExecuteScript extends AbstractDatastarEvent {
             }
 
             var wrappedScript = new StringBuilder("<script");
-            List<String> dataLines = new ArrayList<>();
-            
+
             // Add attributes if not default
             if (attributes != null && !attributes.isBlank()) {
                 wrappedScript.append(' ').append(attributes);
@@ -76,9 +77,11 @@ public final class ExecuteScript extends AbstractDatastarEvent {
             wrappedScript.append(">").append(script).append("</script>");
 
             // Add script
-            wrappedScript.toString().lines()
-                    .filter(line -> !line.isBlank())
-                    .forEach(line -> dataLines.add(ELEMENTS_DATALINE_LITERAL + line));
+            var dataLines = wrappedScript.toString()
+                    .lines()
+                    .filter(Predicate.not(String::isBlank))
+                    .map(line -> ELEMENTS_DATALINE_LITERAL + line)
+                    .toList();
 
             return new ExecuteScript(EventType.PatchElements, dataLines);
         }
