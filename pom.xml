@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>dev.data-star</groupId>
     <artifactId>datastar-java-sdk</artifactId>
-    <version>1.0.0</version>
+    <version>${revision}</version>
     <packaging>pom</packaging>
 
     <name>Datastar Java SDK</name>
@@ -52,21 +52,22 @@
     </distributionManagement>
 
     <properties>
+    	<revision>1.0.1</revision>
         <maven.compiler.release>17</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <generateBackupPoms>false</generateBackupPoms>
 
-        <maven.source.plugin.version>3.3.1</maven.source.plugin.version>
-        <maven.compiler.plugin.version>3.14.0</maven.compiler.plugin.version>
-        <maven.surefire.plugin.version>3.5.3</maven.surefire.plugin.version>
-        <maven.dependency.plugin.version>3.8.1</maven.dependency.plugin.version>
-        <maven.javadoc.plugin.version>3.11.3</maven.javadoc.plugin.version>
+        <maven.source.plugin.version>3.4.0</maven.source.plugin.version>
+        <maven.compiler.plugin.version>3.15.0</maven.compiler.plugin.version>
+        <maven.surefire.plugin.version>3.5.6</maven.surefire.plugin.version>
+        <maven.dependency.plugin.version>3.11.0</maven.dependency.plugin.version>
+        <maven.javadoc.plugin.version>3.12.0</maven.javadoc.plugin.version>
         <maven.gpg.plugin.version>3.2.8</maven.gpg.plugin.version>
 
-        <junit.jupiter.version>5.11.4</junit.jupiter.version>
-        <mockito.version>5.14.2</mockito.version>
-        <jackson.databind.version>2.18.2</jackson.databind.version>
+        <junit.jupiter.version>6.1.0</junit.jupiter.version>
+        <mockito.version>5.23.0</mockito.version>
+        <jackson.databind.version>2.22.0</jackson.databind.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -74,14 +75,14 @@
             <dependency>
                 <groupId>dev.data-star</groupId>
                 <artifactId>datastar-java-sdk-core</artifactId>
-                <version>${project.version}</version>
+                <version>${revision}</version>
             </dependency>
 
             <!-- JAX-RS extension -->
             <dependency>
                 <groupId>dev.data-star</groupId>
                 <artifactId>datastar-java-sdk-jaxrs</artifactId>
-                <version>${project.version}</version>
+                <version>${revision}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -150,7 +151,7 @@
                     <plugin>
                         <groupId>org.sonatype.central</groupId>
                         <artifactId>central-publishing-maven-plugin</artifactId>
-                        <version>0.8.0</version>
+                        <version>0.10.0</version>
                         <extensions>true</extensions>
                         <configuration>
                             <publishingServerId>central</publishingServerId>
@@ -184,7 +185,7 @@
                             <execution>
                                 <id>attach-javadocs</id>
                                 <goals>
-                                    <goal>jar-no-fork</goal>
+                                    <goal>javadoc-no-fork</goal>
                                 </goals>
                                 <phase>package</phase>
                             </execution>

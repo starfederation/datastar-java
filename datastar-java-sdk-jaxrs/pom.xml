@@ -5,10 +5,9 @@
     <parent>
         <groupId>dev.data-star</groupId>
         <artifactId>datastar-java-sdk</artifactId>
-        <version>1.0.0</version>
+        <version>${revision}</version>
     </parent>
     <artifactId>datastar-java-sdk-jaxrs</artifactId>
-    <version>1.0.0</version>
     <packaging>jar</packaging>
 
     <name>Datastar Java SDK JAX-RS plugin</name>
@@ -37,7 +36,7 @@
         <dependency>
             <groupId>dev.data-star</groupId>
             <artifactId>datastar-java-sdk-core</artifactId>
-            <version>${project.version}</version>
+            <version>${revision}</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>
