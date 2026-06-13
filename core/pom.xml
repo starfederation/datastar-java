@@ -5,7 +5,7 @@
     <parent>
         <groupId>dev.data-star</groupId>
         <artifactId>datastar-java-sdk</artifactId>
-        <version>${revision}</version>
+        <version>1.0.1</version>
     </parent>
 
     <artifactId>datastar-java-sdk-core</artifactId>
@@ -20,6 +20,16 @@
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>${jackson.databind.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-junit-jupiter</artifactId>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 </project>

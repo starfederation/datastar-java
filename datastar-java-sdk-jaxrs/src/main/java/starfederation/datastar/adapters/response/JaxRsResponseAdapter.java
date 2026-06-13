@@ -3,7 +3,6 @@ package starfederation.datastar.adapters.response;
 import jakarta.ws.rs.sse.Sse;
 import jakarta.ws.rs.sse.SseEventSink;
 
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
@@ -26,7 +25,7 @@ public class JaxRsResponseAdapter extends AbstractResponseAdapter {
     public void setStatus(int status) {
     }
 
-    public void sendEvent(String eventName, String data) throws IOException {
+    public void sendEvent(String eventName, String data) {
         if (eventSink != null && !eventSink.isClosed()) {
             eventSink.send(sse.newEventBuilder()
                     .name(eventName)

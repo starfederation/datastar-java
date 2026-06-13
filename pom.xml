@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>dev.data-star</groupId>
     <artifactId>datastar-java-sdk</artifactId>
-    <version>${revision}</version>
+    <version>1.0.1</version>
     <packaging>pom</packaging>
 
     <name>Datastar Java SDK</name>
@@ -52,7 +52,6 @@
     </distributionManagement>
 
     <properties>
-    	<revision>1.0.1</revision>
         <maven.compiler.release>17</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -65,29 +64,13 @@
         <maven.javadoc.plugin.version>3.12.0</maven.javadoc.plugin.version>
         <maven.gpg.plugin.version>3.2.8</maven.gpg.plugin.version>
 
-        <junit.jupiter.version>6.1.0</junit.jupiter.version>
+        <junit.jupiter.version>5.14.4</junit.jupiter.version>
         <mockito.version>5.23.0</mockito.version>
         <jackson.databind.version>2.22.0</jackson.databind.version>
     </properties>
+
     <dependencyManagement>
-        <dependencies>
-            <!-- Core SDK -->
-            <dependency>
-                <groupId>dev.data-star</groupId>
-                <artifactId>datastar-java-sdk-core</artifactId>
-                <version>${revision}</version>
-            </dependency>
-
-            <!-- JAX-RS extension -->
-            <dependency>
-                <groupId>dev.data-star</groupId>
-                <artifactId>datastar-java-sdk-jaxrs</artifactId>
-                <version>${revision}</version>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
-    <dependencies>
+       <dependencies>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
@@ -106,7 +89,8 @@
             <version>${mockito.version}</version>
             <scope>test</scope>
         </dependency>
-    </dependencies>
+       </dependencies>
+    </dependencyManagement>
 
     <build>
         <plugins>

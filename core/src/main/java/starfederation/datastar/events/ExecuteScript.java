@@ -1,7 +1,6 @@
 package starfederation.datastar.events;
 import static starfederation.datastar.Consts.ELEMENTS_DATALINE_LITERAL;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 
