@@ -13,6 +13,9 @@ buildNumber.properties
 # IDE
 .idea/
 .vscode/
+.project
+.classpath
+.settings/
 *.iml
 *.ipr
 *.iws

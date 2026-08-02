@@ -169,7 +169,7 @@
                             <execution>
                                 <id>attach-javadocs</id>
                                 <goals>
-                                    <goal>javadoc-no-fork</goal>
+                                    <goal>jar</goal>
                                 </goals>
                                 <phase>package</phase>
                             </execution>
