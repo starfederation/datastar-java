@@ -20,7 +20,7 @@ Install using Maven by adding the following to your `pom.xml`:
         <dependency>
             <groupId>dev.data-star</groupId>
             <artifactId>datastar-java-sdk</artifactId>
-            <version>1.0.0</version>
+            <version>1.0.1</version>
             <type>pom</type>
             <scope>import</scope>
         </dependency>
